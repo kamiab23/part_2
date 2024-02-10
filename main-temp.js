@@ -1,21 +1,28 @@
 var inpt = document.querySelector("#inpt");
+var result = document.querySelector(".result");
 var h2 = document.querySelector("h2");
 var p = document.querySelector("p");
 var show = 0;
 function findMax() {
   var arr = inpt.value.split(" ");
-  for (let i = 0; i < arr.length; i++) {
-    if (+arr[i] > +show) {
-      console.log(arr[i], show);
-      show = arr[i];
-    }
-    console.log(arr[i], show);
-  }
-  h2.innerHTML = "Max: " + show;
+    arr.forEach(element => {
+        console.log(element);
+        if (+element > +show) {
+            show = element;
+        }
+    });
+    h2.innerHTML = "Max: " + show;
 }
 
 function findMin() {
   var arr = inpt.value.split(" ");
+    show = arr[0];
+    arr.forEach(element => {
+        if (+element < +show) {
+            show = element;
+        }
+    })
+    h2.innerHTML = "Min: " + show;
 }
 
 function removeDuplicate() {
