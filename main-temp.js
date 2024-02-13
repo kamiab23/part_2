@@ -30,14 +30,17 @@ function removeDuplicate() {
     var uniqueArr = arr.filter((value, index, self) => {
       return self.indexOf(value) === index;
     });
-    inpt.value = uniqueArr.join(" ");
     h2.innerHTML = "RemoveDuplicate: " + uniqueArr;
 }
-
 function findDuplicates() {
   var arr = inpt.value.split(" ");
-  var duplicates = arr.filter((value, index, self) => {
-    return self.indexOf(value) !== index;
+  var duplicates = [];
+
+  arr.forEach((value) => {
+    if (arr.indexOf(value) != arr.lastIndexOf(value) && !duplicates.includes(value)) {
+      duplicates.push(value);
+    }
   });
-  h2.innerHTML = "Duplicates " + duplicates;
+
+  h2.innerHTML = "Duplicates: " + duplicates;
 }
