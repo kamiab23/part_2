@@ -34,12 +34,8 @@ function removeDuplicate() {
 }
 function findDuplicates() {
   var arr = inpt.value.split(" ");
-  var duplicates = [];
-
-  arr.forEach((value) => {
-    if (arr.indexOf(value) != arr.lastIndexOf(value) && !duplicates.includes(value)) {
-      duplicates.push(value);
-    }
+  var duplicates = arr.filter((value, index) => {
+    return arr.indexOf(value) != arr.lastIndexOf(value) && index == arr.indexOf(value);
   });
 
   h2.innerHTML = "Duplicates: " + duplicates;
